@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #c6a15b;
+  --maroon: #641e32;
+  --cream: #fff7eb;
+  --charcoal: #242020;
+  --kesari: #d98235;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #242020;
+  color: #fff7eb;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #c6a15b;
+  color: #242020;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1617;
+}
+::-webkit-scrollbar-thumb {
+  background: #641e32;
+  border-radius: 8px;
+  border: 2px solid #1a1617;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c6a15b;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Gold gradient text */
+.gold-text {
+  background: linear-gradient(135deg, #c6a15b 0%, #e6c887 45%, #9e7b3b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Paithani-inspired dotted gold divider */
+.paithani-border {
+  height: 10px;
+  background-image: radial-gradient(circle, rgba(198, 161, 91, 0.6) 1.5px, transparent 1.5px);
+  background-size: 18px 10px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* Film grain overlay */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Arch top frame (Maharashtrian scalloped arch) */
+.arch-top {
+  border-radius: 999px 999px 0 0;
+}
+
+/* Slow marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 46s linear infinite;
+}
+
+/* Underline link hover */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: #c6a15b;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Hide scrollbars for horizontal reel strip */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
